@@ -1,0 +1,15 @@
+data DiseasesCA ; 
+Title 'Diseases in California' ;
+infile "/folders/myfolders/sasuser.v94/DiseasesInCAData.csv" DSD firstobs= 2 ;
+input Diseases $ County $ Year $ Sex $ Cases Population L_95PercCI H_95PercCI Rate ;
+run ;
+
+
+proc means data = DiseasesCA ;
+run;
+
+Proc corr data = DiseasesCA ;
+run ;
+
+Proc univariate data = DiseasesCA ;
+run ;
